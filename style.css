@@ -126,8 +126,14 @@ button:hover {
   margin-right: 10rem;
 }
 
-h1 {
+.result h1 {
+  display: flex;
+  align-items: center;
   margin-right: 5rem;
-  padding-bottom: -2rem;
   margin-top: -2rem;
+  padding-bottom: -2rem;
+}
+
+.age-years, .age-months, .age-days {
+  color: rgb(126, 80, 245); /* Purple color */
 }

@@ -58,10 +58,16 @@ function displayAge() {
 
   const { years, months, days } = calculateAge(dayInput, monthInput, yearInput);
 
-  document.querySelector('.result h1:nth-child(1)').textContent = `${years} years`;
-  document.querySelector('.result h1:nth-child(2)').textContent = `${months} months`;
-  document.querySelector('.result h1:nth-child(3)').textContent = `${days} days`;
+  document.querySelector('.age-years').textContent = `${years}`;
+  document.querySelector('.age-months').textContent = `${months}`;
+  document.querySelector('.age-days').textContent = `${days}`;
 }
+
+// Event listener for the button click
+document.getElementById('calculate-btn').addEventListener('click', function(event) {
+  event.preventDefault();
+  validateDate();
+});
 
 // Main function to validate the entire date
 function validateDate() {
