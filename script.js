@@ -100,6 +100,7 @@ function validateDate() {
   const monthInput = document.getElementById('month');
   const yearInput = document.getElementById('year');
   const allError = document.getElementById('allError');
+  const emptyInput = document.getElementById('emptyInput')
 
   const isDayValid = validateDay();
   const isMonthValid = validateMonth();
@@ -108,6 +109,7 @@ function validateDate() {
   showError(dayInput, !isDayValid);
   showError(monthInput, !isMonthValid);
   showError(yearInput, !isYearValid);
+  
 
   if (isDayValid && isMonthValid && isYearValid) {
     allError.style.display = 'none';
@@ -116,6 +118,8 @@ function validateDate() {
     allError.style.display = 'block';
   }
 }
+
+
 
 // Event listener for the button click
 document.getElementById('calculate-btn').addEventListener('click', function(event) {
