@@ -7,26 +7,57 @@ function isValid(value, min, max) {
   return num >= min && num <= max;
 }
 
+// Function to check if a year is a leap year
+function isLeapYear(year) {
+  return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+}
+
+// Function to get the number of days in a month
+function getDaysInMonth(month, year) {
+  switch (month) {
+    case 2: // February
+      return isLeapYear(year) ? 29 : 28;
+    case 4: case 6: case 9: case 11: // April, June, September, November
+      return 30;
+    default: // January, March, May, July, August, October, December
+      return 31;
+  }
+}
+
 // Specific validation functions using the general validation function
 function validateDay() {
-  return isValid(document.getElementById('date').value, 1, 31);
+  const dayInput = document.getElementById('date');
+  const monthInput = document.getElementById('month');
+  const yearInput = document.getElementById('year');
+  const dayValue = parseInt(dayInput.value, 10);
+  const monthValue = parseInt(monthInput.value, 10);
+  const yearValue = parseInt(yearInput.value, 10);
+  const daysInMonth = getDaysInMonth(monthValue, yearValue);
+  return isValid(dayValue, 1, daysInMonth);
 }
 
 function validateMonth() {
-  return isValid(document.getElementById('month').value, 1, 12);
+  const monthInput = document.getElementById('month');
+  const monthValue = parseInt(monthInput.value, 10);
+  return isValid(monthValue, 1, 12);
 }
 
 function validateYear() {
   const yearInput = document.getElementById('year');
+  const yearValue = parseInt(yearInput.value, 10);
   const currentYear = new Date().getFullYear();
-  return isValid(yearInput.value, 1900, currentYear);
+  return isValid(yearValue, 1900, currentYear);
 }
 
-// Function to handle displaying errors
-function showError(element, show) {
-  const label = element.parentElement;
-  element.classList.toggle('error', show);
-  label.classList.toggle('error', show);
+function showError(input, isError) {
+  const label = input.parentElement;
+  if (isError) {
+    input.classList.add('error');
+    label.classList.add('error');
+  } else {
+    input.classList.remove('error');
+    label.classList.remove('error');
+  }
 }
 
 // Function to calculate the age
@@ -62,12 +93,6 @@ function displayAge() {
   document.querySelector('.age-months').textContent = `${months}`;
   document.querySelector('.age-days').textContent = `${days}`;
 }
-
-// Event listener for the button click
-document.getElementById('calculate-btn').addEventListener('click', function(event) {
-  event.preventDefault();
-  validateDate();
-});
 
 // Main function to validate the entire date
 function validateDate() {
