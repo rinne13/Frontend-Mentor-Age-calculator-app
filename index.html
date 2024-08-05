@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  
+  <title>Frontend Mentor | Age calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+  <!--BOX-->
+  <div class="box">
+
+    <!--LABELS BIRTHDAY-->
+
+    <div class="yourBirthday">
+      <label for="date">DAY
+        <input type="number" id="date" name="date" min="1" max="31" placeholder="DD">
+      </label>
+      <label for="month">MONTH
+        <input type="number" id="month" name="month" min="1" max="12" placeholder="MM">
+      </label>
+      <label for="year">YEAR
+        <input type="number" id="year" name="year" min="1900" max="2100" placeholder="YYYY">
+      </label>
+    </div> 
+
+  <!--ERRORS-->
+
+  <div id="allError" class="error-message">Must be a valid date</div>
+
+  <!--ERRORS ENDED-->
+<!--BUTTON-->
+<div class="button-divider-container">
+  <hr class="divider">
+  <button id="calculate-btn"><img src="./assets/icons/arrow_downward_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg" alt="Submit"></button>
+</div>
+<!--BUTTON ENDED-->
+
+
+
+
+
+    <!--LABELS BIRTHDAY-->
+
+ 
+
+
+    <div class="result">
+      <h1> -- years </h1>
+      <h1> -- months </h1>
+      <h1> -- days</h1> 
+    </div> 
+  </div>
+
+      <!--LABELS BIRTHDAY ENDED-->
+
+
+  <!--BOX ENDED-->
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Varvara Rinne</a>.
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
