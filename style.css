@@ -76,11 +76,18 @@ input[type="number"] {
   border: red;
   font-size: 12px;
 }
+
 .error-message {
   color: red;
   font-size: 12px;
   display: none;
 }
+
+.error-message.empty-input,
+.error-message.invalid-date {
+  margin-top: 0.25rem;
+}
+
 
 label.error {
   color: red;

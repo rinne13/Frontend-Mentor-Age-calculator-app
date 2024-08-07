@@ -49,17 +49,6 @@ function validateYear() {
   return isValid(yearValue, 1900, currentYear);
 }
 
-function showError(input, isError) {
-  const label = input.parentElement;
-  if (isError) {
-    input.classList.add('error');
-    label.classList.add('error');
-  } else {
-    input.classList.remove('error');
-    label.classList.remove('error');
-  }
-}
-
 // Function to calculate the age
 function calculateAge(day, month, year) {
   const birthDate = new Date(year, month - 1, day); // Months are 0-based in JavaScript
@@ -89,9 +78,20 @@ function displayAge() {
 
   const { years, months, days } = calculateAge(dayInput, monthInput, yearInput);
 
-  document.querySelector('.age-years').textContent = `${years}`;
-  document.querySelector('.age-months').textContent = `${months}`;
-  document.querySelector('.age-days').textContent = `${days}`;
+  document.querySelector('.result .age-years').textContent = years;
+  document.querySelector('.result .age-months').textContent = months;
+  document.querySelector('.result .age-days').textContent = days;
+}
+
+// Function to handle displaying errors
+function showError(input, emptyError, invalidError) {
+  const emptyMessage = input.parentElement.querySelector('.error-message.empty-input');
+  const invalidMessage = input.parentElement.querySelector('.error-message.invalid-date');
+
+  emptyMessage.style.display = emptyError ? 'block' : 'none';
+  invalidMessage.style.display = invalidError ? 'block' : 'none';
+
+  input.classList.toggle('error', emptyError || invalidError);
 }
 
 // Main function to validate the entire date
@@ -99,27 +99,19 @@ function validateDate() {
   const dayInput = document.getElementById('date');
   const monthInput = document.getElementById('month');
   const yearInput = document.getElementById('year');
-  const allError = document.getElementById('allError');
-  const emptyInput = document.getElementById('emptyInput')
 
   const isDayValid = validateDay();
   const isMonthValid = validateMonth();
   const isYearValid = validateYear();
 
-  showError(dayInput, !isDayValid);
-  showError(monthInput, !isMonthValid);
-  showError(yearInput, !isYearValid);
-  
+  showError(dayInput, !dayInput.value, !isDayValid && dayInput.value);
+  showError(monthInput, !monthInput.value, !isMonthValid && monthInput.value);
+  showError(yearInput, !yearInput.value, !isYearValid && yearInput.value);
 
-  if (isDayValid && isMonthValid && isYearValid) {
-    allError.style.display = 'none';
+  if (isDayValid && isMonthValid && isYearValid && dayInput.value && monthInput.value && yearInput.value) {
     displayAge();
-  } else {
-    allError.style.display = 'block';
   }
 }
-
-
 
 // Event listener for the button click
 document.getElementById('calculate-btn').addEventListener('click', function(event) {
