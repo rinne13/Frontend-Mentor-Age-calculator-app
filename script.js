@@ -3,8 +3,7 @@ document.getElementById('year').max = new Date().getFullYear();
 
 // General validation function to check if a value is within a range
 function isValid(value, min, max) {
-  const num = parseInt(value, 10);
-  return num >= min && num <= max;
+  return value >= min && value <= max;
 }
 
 // Function to check if a year is a leap year
@@ -46,7 +45,14 @@ function validateYear() {
   const yearInput = document.getElementById('year');
   const yearValue = parseInt(yearInput.value, 10);
   const currentYear = new Date().getFullYear();
+  
+  // Validate that the year is between 1900 and the current year
   return isValid(yearValue, 1900, currentYear);
+}
+function isFutureDate(day, month, year) {
+  const today = new Date();
+  const inputDate = new Date(year, month - 1, day);
+  return today > inputDate;
 }
 
 // Function to calculate the age
@@ -103,12 +109,13 @@ function validateDate() {
   const isDayValid = validateDay();
   const isMonthValid = validateMonth();
   const isYearValid = validateYear();
+  const isDayInFuture = isFutureDate(dayInput.value, monthInput.value, yearInput.value);
 
   showError(dayInput, !dayInput.value, !isDayValid && dayInput.value);
   showError(monthInput, !monthInput.value, !isMonthValid && monthInput.value);
-  showError(yearInput, !yearInput.value, !isYearValid && yearInput.value);
+  showError(yearInput, !yearInput.value, (!isYearValid || !isDayInFuture) && yearInput.value);
 
-  if (isDayValid && isMonthValid && isYearValid && dayInput.value && monthInput.value && yearInput.value) {
+  if (isDayValid && isMonthValid && isYearValid && isDayInFuture && dayInput.value && monthInput.value && yearInput.value) {
     displayAge();
   }
 }

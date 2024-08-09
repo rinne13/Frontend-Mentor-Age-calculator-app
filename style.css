@@ -1,27 +1,33 @@
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  padding: 0.8vw; /* Немного уменьшил */
+}
+
+.attribution a { 
+  color: hsl(228, 45%, 44%); 
+}
 
 body {
   background-color: #d9d1d1;
-  font-size: 32px;
+  font-size: 30px; /* Немного уменьшил */
   font-family: "Poppins", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 70vh;
 }
 
 .box {
   display: flex;
   flex-direction: column;
   border-radius: 15px 15px 150px 15px;
-  margin: 5rem 15rem;
-  max-width: 70%;
-  font-size: 32px;
-  font-family: "Poppins", sans-serif;
+  margin: 4rem 14rem; /* Немного уменьшил */
+  max-width: 65%; /* Немного уменьшил */
+  font-size: 8vw; /* Немного уменьшил */
   background-color: #fff;
-  padding: 30px;
+  padding: 28px; /* Немного уменьшил */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: left;
 }
@@ -30,92 +36,72 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  margin: 2rem;
-  gap: 15px;    
-  margin-bottom: 20px;
+  margin: 2.5vh 9vw 0 1vw;  gap: 7vh; /* Немного уменьшил */
+  margin-bottom: 18px; /* Немного уменьшил */
 }
 
 .yourBirthday label {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  font-size: 16px;
+  font-size: 0.95vw; /* Немного уменьшил */
   color: #33333373;
-  font-family: "Poppins", sans-serif;
   font-weight: bold;
-  margin: -15px;
+  margin: -13px; /* Немного уменьшил */
 }
 
 .yourBirthday input {
-
   font-weight: bold;
-  margin-top: 0.5rem;
+  margin-top: 0.4rem;
   border: 2px solid rgb(207, 207, 222);
   border-radius: 5px;
   background-color: #f0f0f0;
-  padding: 0.5rem;
-  width: 300px;
-  height: 4rem;
-  font-size: 1.5rem;
-  margin-right: 2rem;
-  max-width: 15rem; 
-
+  padding: 0.4rem; /* Немного уменьшил */
+  width: 9.5vw; /* Немного уменьшил */
+  height: 3.5rem; /* Немного уменьшил */
+  font-size: 1.7vw; /* Немного уменьшил */
+  max-width: 14rem; /* Немного уменьшил */
+  cursor: pointer;
 }
 
 input[type="number"] {
-  padding: 10px;
+  padding: 9px; /* Немного уменьшил */
   border: 1px solid #ccc;
   border-radius: 5px;
   max-width: 100%;
-  width: 125px;
-  box-sizing:border-box;
+  width: 120px; /* Немного уменьшил */
+  box-sizing: border-box;
 }
 
 .error {
   border-color: red;
-  border: red;
-  font-size: 12px;
+  font-size: 0.95vw; /* Немного уменьшил */
 }
 
 .error-message {
   color: red;
-  font-size: 12px;
+  font-size: 0.95vw; /* Немного уменьшил */
   display: none;
-}
-
-.error-message.empty-input,
-.error-message.invalid-date {
-  margin-top: 0.25rem;
-}
-
-
-label.error {
-  color: red;
-}
-
-input.error {
-  border-color: red;
 }
 
 .button-divider-container {
   display: flex;
   align-items: center;
-  margin-top: 20px; /* Adjust if necessary */
-  margin-bottom: 20px;
+  margin-bottom: 18px; /* Немного уменьшил */
 }
 
 .divider {
   flex-grow: 1;
   border: 0;
   border-top: 1px solid #ccc;
-  margin: 0 20px 0 0; /* Adjust if necessary */
+  margin: 0 18px 0 0; /* Немного уменьшил */
 }
 
 button {
   border-radius: 50%;
   background-color: rgb(126, 80, 245);
   color: white;
-  padding: 12px;
+  padding: 11px; /* Немного уменьшил */
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -125,26 +111,107 @@ button:hover {
   background-color: #0056b3;
 }
 
-
-
 .result {
-  font-size: 40px;
+  font-size: 2.5vw; /* Немного уменьшил */
   color: black;
-  margin-right: 10rem;
+  margin-right: 9rem; /* Немного уменьшил */
 }
 
 .result h1 {
   display: flex;
   align-items: center;
-  margin-right: 5rem;
-  margin-top: -2rem;
-  padding-bottom: -2rem;
+  margin-right: 0.9rem; /* Немного уменьшил */
+  margin-top: -1.9rem; /* Немного уменьшил */
+  margin-bottom: 1.9rem; /* Немного уменьшил */
 }
 
 .age-years, .age-months, .age-days {
-  color: rgb(126, 80, 245); /* Purple color */
+  color: rgb(126, 80, 245); /* Фиолетовый цвет */
 }
 
 .result h1 span {
-  margin-right: 1rem; /* или любое другое значение, которое вам нужно */
+  margin-right: 0.9rem; /* Немного уменьшил */
+}
+
+input#date, input#month, input#year {
+  background: white;
+  width: 14.5vw; /* Немного уменьшил */
+}
+
+/* MOBILE */
+@media screen and (max-width: 600px) {
+  body {
+    font-size: small;
+  }
+
+  .box {
+    width: 90vw; /* Немного уменьшил */
+    margin: 4rem 2vw; /* Немного уменьшил */
+  }
+
+  .yourBirthday {
+    flex-direction: row;
+    gap: 1vw; /* Немного уменьшил */
+    justify-content: space-between;
+  }
+
+  .yourBirthday input {
+    background: white;
+    max-width: unset;
+    font-size: 2.5vw; /* Немного уменьшил */
+    width: 17vw; /* Немного уменьшил */
+    justify-content: center;
+  }
+
+  input#date, input#month, input#year {
+    background: white;
+    width: 17vw; /* Немного уменьшил */
+  }
+
+  .button-divider-container {
+    justify-content: center;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .result {
+    margin-right: 1vw; /* Немного уменьшил */
+    text-align: left;
+  }
+
+  .result h1 {
+    margin-right: 1vw; /* Немного уменьшил */
+    justify-content: left;
+    font-size: 7.5vw; /* Немного уменьшил */
+  }
+
+  .result h1 span {
+    margin-right: 0.4rem; /* Немного уменьшил */
+    font-size: 7.5vw; /* Немного уменьшил */
+  }
+
+  .attribution {
+    font-size: 11px;
+    text-align: center;
+    margin: 10px;
+  }
+
+  button {
+    border-radius: 50%;
+    background-color: rgb(126, 80, 245);
+    color: white;
+    padding: 2vw; /* Немного уменьшил */
+    margin: 2vw; /* Немного уменьшил */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .button-divider-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px; /* Немного уменьшил */
+  }
 }
